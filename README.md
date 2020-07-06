@@ -66,5 +66,5 @@ const slides = [
 ## Made by Wescale team
 - Site: [wescale.ru](wescale.ru)
 - Email: info@wescale.ru
-- CEO: Alex Neverov
+- CEO: Alex Neverov (inst @neverovvv, telegram @neverovvvv)
 - Address: Moscow, Leninsky Prospect apt. 42
