@@ -15,17 +15,24 @@ import React from "react";
 
 const slides = [
     {
-      theme: "dark", 
-      title: "Title random 1", 
-      alt: "Alt text 1", video: "/static/img/ads/video8.mp4", 
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        theme: "dark",
+        title: "Title random 1",
+        alt: "Alt text 1",
+        video: "/static/img/ads/video8.mp4",
+        description: "Lorem ipsum dolor sit amet, consectetur adi...",
+        style: {backgroundColor: "#f5cab9"},
+        styleVideo: {borderRadius: 10}
     },
-      
+    {.  // CUSTOM SLIDE EXAMPLE
+        component: (
+            <SlideTemplate slide={{title: "Title random 2", alt: "Alt text 2", image: "/static/img/ads/background2.jpg", description: "Lorem ipsum dolor sit amet, consectetur adi...", style: {background: "linear-gradient(90deg, #1d7d70 0%, #1b9887 50%)"}, styleImage: {maxWidth: 400, borderRadius: 10}}}/>
+        )
+    },
     {
-      title: "Title random 2", 
-      alt: "Alt text 2", 
-      image: "/static/img/ads/background2.jpg", 
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        title: "Title random 3",
+        alt: "Alt text 3",
+        description: "Lorem ipsum dolor sit amet, consectetur adi...",
+        style: {background: "linear-gradient(90deg, #5e3084 0%, #2fad7e 85%)"}
     }
 ]
 
