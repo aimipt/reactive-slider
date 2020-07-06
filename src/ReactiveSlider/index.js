@@ -11,14 +11,18 @@ import "./style.css";
 export default function ReactiveSlider(props) {
     let {slides, interval, height, width, isReverse, withBullets, withButtonNext} = props;
     const [animate50, setAnimate50] = useState(false);
+    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval);
 
-    const length = slides.length;
-
-    if (!length) {
-        return null
+    if (!slides) {
+        slides = []
     }
 
-    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval);
+    if (!interval) {
+        interval = 10000
+    }
+
+    const length = slides.length;
+    
     const slideSelected = slides[slideNumber];
 
     const renderSlide = (slideData, index) => {
@@ -33,6 +37,11 @@ export default function ReactiveSlider(props) {
         const id = setTimeout(() => setAnimate50(true), 50);
         return () => clearTimeout(id);
     }, [slideNumber]);
+
+
+    if (!length) {
+        return null
+    }
 
     return (
         <div className="reactive-slider">
