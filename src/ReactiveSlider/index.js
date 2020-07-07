@@ -21,7 +21,7 @@ export default function ReactiveSlider(props) {
     const length = slides.length;
 
     const [animate50, setAnimate50] = useState(false);
-    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval);
+    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval, slides.map(v => v.interval));
 
     const slideSelected = slides[slideNumber];
 

@@ -57,11 +57,11 @@ function carouselReducer(state, action) {
 }
 
 
-export function useCarousel(length, interval) {
+export function useCarousel(length, interval, intervalList) {
   const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
-
+  const currentInterval = intervalList ? (intervalList[state.active] || interval) : interval
   useEffect(() => {
-    const id = setTimeout(() => dispatch({ type: 'next', length }), interval);
+    const id = setTimeout(() => dispatch({ type: 'next', length }), currentInterval);
     return () => clearTimeout(id);
     // eslint-disable-next-line
   }, [state.offset, state.active]);

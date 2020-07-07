@@ -5,6 +5,7 @@ import './App.css';
 
 const slides = [
     {
+        interval: 13000,
         theme: "light",
         title: "Title random 1",
         alt: "Alt text 1",
