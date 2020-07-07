@@ -1,5 +1,7 @@
 
-
+.reactive-slider {
+    box-sizing: border-box;
+}
 
 
 .reactive-slider .container-main {
@@ -21,4 +23,10 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+}
+
+.reactive-slider .slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }

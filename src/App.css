@@ -1,0 +1,11 @@
+.App {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.App .container {
+    width: 100%;
+    padding: 20px;
+    max-width: 800px;
+}

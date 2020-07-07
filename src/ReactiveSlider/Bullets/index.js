@@ -5,7 +5,7 @@ import "./style.css";
 export default function Bullets(props) {
     const {items, theme, selected, onSelect} = props;
     return (
-        <div class={"slider-bullets " + (theme || "")}>
+        <div className={"slider-bullets " + (theme || "")}>
             {
                 items.map((v, i) => {
                     const selectedClass = (i === selected) ? " selected" : "";

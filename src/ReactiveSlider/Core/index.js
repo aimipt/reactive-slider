@@ -1,5 +1,6 @@
 import {useEffect, useReducer} from 'react';
 
+
 function previous(length, current) {
   return (current - 1 + length) % length;
 }
@@ -8,10 +9,6 @@ function next(length, current) {
   return (current + 1) % length;
 }
 
-function threshold(target) {
-  const width = target.clientWidth;
-  return width / 3;
-}
 
 const transitionTime = 400;
 const elastic = `transform ${transitionTime}ms cubic-bezier(0.68, -0.55, 0.265, 1.55)`;
@@ -59,22 +56,6 @@ function carouselReducer(state, action) {
   }
 }
 
-function swiped(e, dispatch, length, dir) {
-  const t = threshold(e.event.target);
-  const d = dir * e.deltaX;
-
-  if (d >= t) {
-    dispatch({
-      type: dir > 0 ? 'next' : 'prev',
-      length,
-    });
-  } else {
-    dispatch({
-      type: 'drag',
-      offset: 0,
-    });
-  }
-}
 
 export function useCarousel(length, interval) {
   const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
@@ -82,6 +63,7 @@ export function useCarousel(length, interval) {
   useEffect(() => {
     const id = setTimeout(() => dispatch({ type: 'next', length }), interval);
     return () => clearTimeout(id);
+    // eslint-disable-next-line
   }, [state.offset, state.active]);
 
   useEffect(() => {

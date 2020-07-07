@@ -9,7 +9,7 @@ import "./style.css";
 
 
 export default function ReactiveSlider(props) {
-    let {slides, interval, height, width, isReverse, withBullets, withButtonNext} = props;
+    let {slides, interval, height, width, withBullets, withButtonNext} = props;
     if (!slides) {
         slides = []
     }
@@ -52,7 +52,7 @@ export default function ReactiveSlider(props) {
                     </div>
                     {
                         slides.map((slide, index) => {
-                            const selectedClass = (index === slideNumber) ? " selected" : ""
+                            //const selectedClass = (index === slideNumber) ? " selected" : ""
                             return (
                                 <div key={index} className="slide">
                                     {renderSlide(slide, index + 1)}

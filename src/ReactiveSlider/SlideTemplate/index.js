@@ -25,7 +25,7 @@ export default function SlideTemplate(props) {
                 }
                 {
                     slide.video ?
-                        <video className="video" playsInline frameborder="0" autoPlay loop muted style={{...(slide.styleVideo || {})}}>
+                        <video className="video" playsInline frameBorder="0" autoPlay loop muted style={{...(slide.styleVideo || {})}}>
                             <source src={slide.video}/>
                         </video>
                         :
