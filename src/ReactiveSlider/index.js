@@ -10,9 +10,6 @@ import "./style.css";
 
 export default function ReactiveSlider(props) {
     let {slides, interval, height, width, isReverse, withBullets, withButtonNext} = props;
-    const [animate50, setAnimate50] = useState(false);
-    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval);
-
     if (!slides) {
         slides = []
     }
@@ -22,7 +19,10 @@ export default function ReactiveSlider(props) {
     }
 
     const length = slides.length;
-    
+
+    const [animate50, setAnimate50] = useState(false);
+    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval);
+
     const slideSelected = slides[slideNumber];
 
     const renderSlide = (slideData, index) => {

@@ -5,9 +5,17 @@ import "./style.css";
 export default function SlideTemplate(props) {
     const {slide, index} = props;
 
-    const contentTypeClass = !slide.image && !slide.video ? " text-only " : ""
+    const contentTypeClass = slide.image ? " image " : (slide.video ? " video " : " text-only ")
     return (
         <div className={"slide-template " + (slide.className || "") + ` slide-${index} ` + contentTypeClass + (slide.theme || "")} style={{...(slide.style || {})}}>
+            {
+                slide.image || slide.styleBlur ?
+                    <div className="blur-box">
+                        <div className="blur" style={{backgroundImage: `url("${slide.image || slide.styleBlur.image}")`}}></div>
+                    </div>
+                    :
+                    null
+            }
             <div className="media-box">
                 {
                     slide.image ?
