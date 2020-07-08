@@ -1,9 +1,23 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import "./style.css";
 
 
 export default function SlideTemplate(props) {
-    const {slide, index} = props;
+    const {slide, index, selected, onNext} = props;
+    const vidRef = useRef(null);
+
+    useEffect(() => {
+        if (selected) {
+            if (vidRef.current) {
+                vidRef.current.currentTime = 0;
+                vidRef.current.play();
+            }
+        } else {
+            if (vidRef.current) {
+                vidRef.current.currentTime = 0;
+            }
+        }
+    }, [selected])
 
     const contentTypeClass = slide.image ? " image " : (slide.video ? " video " : " text-only ")
     return (
@@ -25,7 +39,13 @@ export default function SlideTemplate(props) {
                 }
                 {
                     slide.video ?
-                        <video className="video" playsInline frameBorder="0" autoPlay loop muted style={{...(slide.styleVideo || {})}}>
+                        <video  className="video"
+                                playsInline
+                                frameBorder="0"
+                                ref={vidRef}
+                                muted
+                                onEnded={onNext}
+                                style={{...(slide.styleVideo || {})}}>
                             <source src={slide.video}/>
                         </video>
                         :

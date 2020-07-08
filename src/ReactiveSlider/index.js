@@ -21,15 +21,15 @@ export default function ReactiveSlider(props) {
     const length = slides.length;
 
     const [animate50, setAnimate50] = useState(false);
-    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval, slides.map(v => v.interval));
+    const [slideNumber, setSlideNumber, handlers, style] = useCarousel(length, interval, slides.map(v => v.video ? (v.interval || 1000000) : v.interval));
 
     const slideSelected = slides[slideNumber];
 
-    const renderSlide = (slideData, index) => {
+    const renderSlide = (slideData, index, isSelected) => {
         if (slideData.component) {
             return slideData.component
         }
-        return <SlideTemplate slide={slideData} index={index}/>
+        return <SlideTemplate slide={slideData} selected={isSelected} index={index} onNext={() => setSlideNumber((slideNumber + 1) % length)}/>
     }
 
     useEffect(() => {
@@ -53,9 +53,10 @@ export default function ReactiveSlider(props) {
                     {
                         slides.map((slide, index) => {
                             //const selectedClass = (index === slideNumber) ? " selected" : ""
+                            const isSelected = index === slideNumber
                             return (
                                 <div key={index} className="slide">
-                                    {renderSlide(slide, index + 1)}
+                                    {renderSlide(slide, index + 1, isSelected)}
                                 </div>
                             )
                         })
