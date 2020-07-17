@@ -4,8 +4,6 @@
 - hooks
 - production ready
 
-## Live example
-[wescale.ru/slider](https://wescale.ru/work/reactive_slider)
 
 
 ## Example
